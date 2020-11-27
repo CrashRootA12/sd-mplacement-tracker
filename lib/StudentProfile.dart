@@ -5,17 +5,21 @@ import 'editStudentDetail.dart';
 
 class StudentProfile extends StatefulWidget {
   final StudentModel student;
-  StudentProfile({Key key, @required this.student}) : super(key: key);
+  StudentProfile({Key key, @required this.student}) : super(key: key) {
+    print('StudentProfile ' + student.name);
+  }
   @override
-  _StudentProfileState createState() =>
-      _StudentProfileState(student: student);
+  _StudentProfileState createState() => _StudentProfileState(student: student);
 }
 
 class _StudentProfileState extends State<StudentProfile> {
   StudentModel student;
 
-  _StudentProfileState({this.student});
+  _StudentProfileState({this.student}) {
+    print("StateOfProfile " + student.name);
+  }
   Widget _buildName() {
+    print(student.name);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

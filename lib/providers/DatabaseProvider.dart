@@ -12,7 +12,7 @@ class DatabaseProvider {
       ctc: 95,
       details: "The Dream Company",
       graduation: 10,
-      link: "TXT",
+      link: "https://dev.jsgrewal.com",
       name: "A Company That Never Came",
       tenth: 0,
       twelfth: 0);
@@ -27,7 +27,7 @@ class DatabaseProvider {
       twelfth: 100);
   Future<Database> init() async {
     var directory = await getApplicationDocumentsDirectory();
-    final path = join(directory.path, "PlacementAppXX.db");
+    final path = join(directory.path, "PlacementAppBy.db");
     print("Creating Database");
     return await openDatabase(
       path,

@@ -6,29 +6,27 @@ import 'package:flutter/material.dart';
 
 class Navigation extends StatefulWidget {
   final StudentModel student;
-  Navigation({Key key, @required this.student}) : super(key: key);
+  Navigation({Key key, @required this.student}) : super(key: key) {
+    print("Reached Nav");
+  }
   @override
-  _NavigationState createState() => _NavigationState(this.student);
+  _NavigationState createState() {
+    print('printing here ' + student.name);
+    return _NavigationState();
+  }
 }
 
 class _NavigationState extends State<Navigation> {
   int pageIndex = 0;
-  static StudentModel student;
-  _NavigationState(StudentModel s) {
-    student = s;
-  }
-  final StudentProfile _profile = StudentProfile(student: student,);
-  final StudentDashboard _dashboard = StudentDashboard(student: student,);
-
-  Widget _showPage = new StudentProfile(student: student,);
+  Widget _showPage;
 
   Widget _pageChooser(int page) {
     switch (page) {
       case 0:
-        return _profile;
+        return StudentProfile(student: widget.student);
         break;
       case 1:
-        return _dashboard;
+        return StudentDashboard(student: widget.student);
         break;
       default:
         return new Container(
@@ -39,8 +37,13 @@ class _NavigationState extends State<Navigation> {
     }
   }
 
+  bool once = true;
   @override
   Widget build(BuildContext context) {
+    if (once) {
+      _showPage = StudentProfile(student: widget.student);
+      once = false;
+    }
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         index: pageIndex,

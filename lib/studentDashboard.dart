@@ -13,8 +13,7 @@ class StudentDashboard extends StatefulWidget {
 }
 
 class _StudentDashboardState extends State<StudentDashboard> {
-  final StudentModel student;
-  _StudentDashboardState({this.student});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +75,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
   Widget getRowWidget(CompanyModel company) {
     return Container(
-      height: 200,
+      height: 250,
       width: MediaQuery.of(context).size.width * 0.87,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -102,7 +101,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: 30,
             ),
             Text(
-              company.arrival,
+              "Arrival: "+company.arrival,
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Schyler',
@@ -113,7 +112,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: 10,
             ),
             Text(
-              company.ctc.toString(),
+             "CTC: "+ company.ctc.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Schyler',
@@ -138,8 +137,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
   }
 
   String isEligible(CompanyModel company) {
-    return (student.tenth >= company.tenth &&
-        student.twelfth >= company.twelfth &&
-        student.cgpa >= company.graduation)?'Yes':'No';
+    return (widget.student.tenth >= company.tenth &&
+        widget.student.twelfth >= company.twelfth &&
+        widget.student.cgpa >= company.graduation)?'Yes':'No';
   }
 }
