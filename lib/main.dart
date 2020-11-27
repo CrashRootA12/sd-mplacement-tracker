@@ -1,11 +1,9 @@
 import 'package:Project/loginAsAdmin.dart';
-import 'package:Project/loginAsTeacher.dart';
-import 'package:Project/providers/DatabaseProvider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:Project/loginAsStudent.dart';
 
 void main() async {
- 
   runApp(MyApp());
 }
 
@@ -78,30 +76,6 @@ class MainScreen extends StatelessWidget {
                       color: Colors.black,
                       child: Text(
                         "I'm a  Student",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Schyler',
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 25),
-                    width: double.infinity,
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LogInTeacherScreen()),
-                        );
-                      },
-                      elevation: 10,
-                      padding: EdgeInsets.all(15),
-                      color: Colors.black,
-                      child: Text(
-                        "I'm a  Teacher",
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Schyler',

@@ -1,20 +1,21 @@
-import 'package:Project/StudentProfile.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:Project/models/StudentModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'AdminOpenCompany.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'models/CompanyModel.dart';
 import 'providers/DatabaseProvider.dart';
 
 class StudentDashboard extends StatefulWidget {
+  final StudentModel student;
+  StudentDashboard({Key key, @required this.student}) : super(key: key);
   @override
   _StudentDashboardState createState() => _StudentDashboardState();
 }
 
 class _StudentDashboardState extends State<StudentDashboard> {
-
- @override
+  final StudentModel student;
+  _StudentDashboardState({this.student});
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,8 +43,6 @@ class _StudentDashboardState extends State<StudentDashboard> {
         ),
       ),
     );
-
-    
   }
 
   Future<List<CompanyModel>> getAllCompanies() async =>
@@ -59,12 +58,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
           theListOfCompanies?.forEach((element) {
             var theCupertinoButton = CupertinoButton(
               child: getRowWidget(element),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AdminOpenCompany(selectedCompany: element,),
-                    ));
+              onPressed: () async {
+                var url = element.link;
+                await launch(url);
               },
             );
             listOfWidgets.add(theCupertinoButton);
@@ -124,11 +120,26 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 fontSize: 20,
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Eligible: "+isEligible(company),
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Schyler',
+                fontSize: 20,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-
+  String isEligible(CompanyModel company) {
+    return (student.tenth >= company.tenth &&
+        student.twelfth >= company.twelfth &&
+        student.cgpa >= company.graduation)?'Yes':'No';
+  }
 }

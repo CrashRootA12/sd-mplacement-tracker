@@ -1,13 +1,20 @@
+import 'package:Project/models/StudentModel.dart';
 import 'package:flutter/material.dart';
 
 import 'editStudentDetail.dart';
 
 class StudentProfile extends StatefulWidget {
+  final StudentModel student;
+  StudentProfile({Key key, @required this.student}) : super(key: key);
   @override
-  _StudentProfileState createState() => _StudentProfileState();
+  _StudentProfileState createState() =>
+      _StudentProfileState(student: student);
 }
 
 class _StudentProfileState extends State<StudentProfile> {
+  StudentModel student;
+
+  _StudentProfileState({this.student});
   Widget _buildName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +34,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "Sukrut Patil",
+            student.name,
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
@@ -57,7 +64,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "170026",
+            student.rollNumber.toString(),
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
@@ -87,7 +94,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "84.6",
+            student.tenth.toString(),
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
@@ -117,7 +124,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "74.7",
+            student.twelfth.toString(),
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
@@ -147,7 +154,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "8.5",
+            student.cgpa.toString(),
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
@@ -177,7 +184,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            "B.Tech CS-SD",
+            student.course,
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',

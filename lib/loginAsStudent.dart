@@ -1,10 +1,9 @@
 import 'package:Project/navigation.dart';
 import 'package:Project/providers/DatabaseProvider.dart';
 import 'package:Project/signup.dart';
-import 'package:Project/studentDashboard.dart';
 import 'package:flutter/material.dart';
 
-import 'forgotPassword.dart';
+import 'models/StudentModel.dart';
 
 class LogInScreen extends StatefulWidget {
   @override
@@ -15,7 +14,8 @@ class _LogInScreenState extends State<LogInScreen> {
   String tfEntryEmail;
   String tfEntryPassword;
   int rollNo;
-  bool _rememberMe = false;
+  StudentModel theStudent;
+
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,69 +96,18 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 
-  Widget _forgot() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ForgotPassword()),
-          );
-        },
-        padding: EdgeInsets.only(right: 0.0),
-        child: Text(
-          "Forgot Password?",
-          style: TextStyle(
-            color: Colors.grey,
-            fontFamily: 'Schyler',
-            fontSize: 16,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _remember() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.black),
-            child: Checkbox(
-                value: _rememberMe,
-                checkColor: Colors.white,
-                activeColor: Colors.grey,
-                onChanged: (value) {
-                  setState(() {
-                    _rememberMe = value;
-                  });
-                }),
-          ),
-          Text(
-            "Remember Me",
-            style: TextStyle(
-                fontFamily: 'Schyler', color: Colors.grey, fontSize: 16),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _loginStudentBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: RaisedButton(
         onPressed: () async {
-           print("dfbvjiviodfvbl.dfboldfbndfbno");
+          print("dfbvjiviodfvbl.dfboldfbndfbno");
           var userCanLogin = await canLogin(tfEntryEmail, tfEntryPassword);
           if (userCanLogin) {
-           
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Navigation()),
+              MaterialPageRoute(builder: (context) => Navigation(student: theStudent,)),
             );
           } else {
             //When User Cannot Login
@@ -227,8 +176,6 @@ class _LogInScreenState extends State<LogInScreen> {
                     height: 30.0,
                   ),
                   _buildPasswordTF(),
-                  _forgot(),
-                  _remember(),
                   SizedBox(
                     height: 20,
                   ),
@@ -278,7 +225,7 @@ class _LogInScreenState extends State<LogInScreen> {
     var listOfStudents = await dbProvider.fetchStudents();
     return listOfStudents.any((student) {
       var b = student.email == email && student.password == password;
-      if (b) rollNo = student.rollNumber;
+      if (b) theStudent = student;
       return b;
     });
   }
