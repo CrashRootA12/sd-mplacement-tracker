@@ -1,12 +1,19 @@
+import 'package:Project/models/StudentModel.dart';
+import 'package:Project/providers/DatabaseProvider.dart';
 import 'package:dropdownfield/dropdownfield.dart';
 import 'package:flutter/material.dart';
 
 class EditDetails extends StatefulWidget {
+  final StudentModel student;
+  EditDetails({Key key, this.student}) : super(key: key);
   @override
-  _EditDetailsState createState() => _EditDetailsState();
+  _EditDetailsState createState() => _EditDetailsState(student: student);
 }
 
 class _EditDetailsState extends State<EditDetails> {
+  StudentModel student;
+  _EditDetailsState({this.student});
+  dynamic tname, troll, tcourse, ttenth, ttwelfth, tcgpa;
   Widget _buildNameTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,6 +25,8 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
+                controller: TextEditingController(text: student.name),
+                onChanged: (value) => tname = value,
                 keyboardType: TextInputType.name,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -44,6 +53,9 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
+                controller:
+                    TextEditingController(text: student.rollNumber.toString()),
+                onChanged: (value) => troll = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -77,6 +89,7 @@ class _EditDetailsState extends State<EditDetails> {
               onValueChanged: (value) {
                 setState(() {
                   selectCity = value;
+                  tcourse = value;
                 });
               },
             ),
@@ -96,6 +109,9 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
+                controller:
+                    TextEditingController(text: student.tenth.toString()),
+                onChanged: (value) => ttenth = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -122,6 +138,9 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
+                controller:
+                    TextEditingController(text: student.twelfth.toString()),
+                onChanged: (value) => ttwelfth = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -148,6 +167,9 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
+                controller:
+                    TextEditingController(text: student.cgpa.toString()),
+                onChanged: (value) => tcgpa = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -168,7 +190,17 @@ class _EditDetailsState extends State<EditDetails> {
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: RaisedButton(
-        onPressed: () => print("Login"),
+        onPressed: () async {
+          await DatabaseProvider().updateStudent(StudentModel(
+              cgpa: tcgpa,
+              course: tcourse,
+              email: student.email,
+              name: tname,
+              password: student.password,
+              rollNumber: troll,
+              tenth: ttenth,
+              twelfth: ttwelfth));
+        },
         elevation: 10,
         padding: EdgeInsets.all(15),
         color: Colors.black,

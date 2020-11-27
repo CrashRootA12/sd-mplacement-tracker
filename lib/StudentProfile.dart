@@ -34,7 +34,7 @@ class _StudentProfileState extends State<StudentProfile> {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: Text(
-            student.name,
+            this.student.name,
             style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'Schyler',
