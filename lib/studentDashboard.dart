@@ -13,7 +13,6 @@ class StudentDashboard extends StatefulWidget {
 }
 
 class _StudentDashboardState extends State<StudentDashboard> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
             fontFamily: 'Schyler',
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
       ),
       body: SafeArea(
         child: Container(
@@ -101,7 +100,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: 30,
             ),
             Text(
-              "Arrival: "+company.arrival,
+              "Arrival: " + company.arrival,
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Schyler',
@@ -112,7 +111,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: 10,
             ),
             Text(
-             "CTC: "+ company.ctc.toString(),
+              "CTC: " + company.ctc.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Schyler',
@@ -123,7 +122,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: 10,
             ),
             Text(
-              "Eligible: "+isEligible(company),
+              "Eligible: " + isEligible(company),
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Schyler',
@@ -138,7 +137,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
   String isEligible(CompanyModel company) {
     return (widget.student.tenth >= company.tenth &&
-        widget.student.twelfth >= company.twelfth &&
-        widget.student.cgpa >= company.graduation)?'Yes':'No';
+            widget.student.twelfth >= company.twelfth &&
+            widget.student.cgpa >= company.graduation)
+        ? 'Yes'
+        : 'No';
   }
 }

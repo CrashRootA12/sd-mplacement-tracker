@@ -107,7 +107,10 @@ class _LogInScreenState extends State<LogInScreen> {
           if (userCanLogin) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Navigation(student: theStudent,)),
+              MaterialPageRoute(
+                  builder: (context) => Navigation(
+                        student: theStudent,
+                      )),
             );
           } else {
             //When User Cannot Login
@@ -116,7 +119,7 @@ class _LogInScreenState extends State<LogInScreen> {
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Log In",
           style: TextStyle(
@@ -162,7 +165,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   Text(
                     'Sign In as Student',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,
@@ -193,7 +196,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       child: Text(
                         "New User? Sign Up Here",
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: Colors.green[900],
                           fontSize: 18,
                           fontFamily: 'Schyler',
                         ),

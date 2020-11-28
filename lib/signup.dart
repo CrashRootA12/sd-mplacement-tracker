@@ -248,7 +248,7 @@ class _SignUpState extends State<SignUp> {
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Submit",
           style: TextStyle(
@@ -285,7 +285,7 @@ class _SignUpState extends State<SignUp> {
                   Text(
                     'Welcome',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green[900],
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,
@@ -297,7 +297,7 @@ class _SignUpState extends State<SignUp> {
                   Text(
                     'We would really like to know you better. Fill in some details and we will handle the rest',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 20.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,

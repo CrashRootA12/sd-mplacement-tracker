@@ -202,7 +202,7 @@ class _EditDetailsState extends State<EditDetails> {
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Submit",
           style: TextStyle(
@@ -228,7 +228,7 @@ class _EditDetailsState extends State<EditDetails> {
             fontFamily: 'Schyler',
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
       ),
       body: Stack(
         children: <Widget>[
@@ -251,7 +251,7 @@ class _EditDetailsState extends State<EditDetails> {
                   Text(
                     'Welcome Back',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green[900],
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,
@@ -263,7 +263,7 @@ class _EditDetailsState extends State<EditDetails> {
                   Text(
                     'What would you like to change?',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green[900],
                       fontSize: 20.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,

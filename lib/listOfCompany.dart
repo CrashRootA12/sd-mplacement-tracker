@@ -1,4 +1,3 @@
-
 import 'package:Project/AdminOpenCompany.dart';
 
 import 'package:Project/models/CompanyModel.dart';
@@ -26,7 +25,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             fontFamily: 'Schyler',
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
       ),
       body: SafeArea(
         child: Container(
@@ -41,8 +40,6 @@ class _AdminDashboardState extends State<AdminDashboard> {
         ),
       ),
     );
-
-    
   }
 
   Future<List<CompanyModel>> getAllCompanies() async =>
@@ -62,7 +59,9 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AdminOpenCompany(selectedCompany: element,),
+                      builder: (context) => AdminOpenCompany(
+                        selectedCompany: element,
+                      ),
                     ));
               },
             );

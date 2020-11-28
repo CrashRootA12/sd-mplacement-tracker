@@ -268,7 +268,7 @@ class _AdminCreateCompanyState extends State<AdminCreateCompany> {
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Create Company",
           style: TextStyle(
@@ -305,7 +305,7 @@ class _AdminCreateCompanyState extends State<AdminCreateCompany> {
                   Text(
                     'Create Company',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,

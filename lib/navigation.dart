@@ -48,7 +48,7 @@ class _NavigationState extends State<Navigation> {
       bottomNavigationBar: CurvedNavigationBar(
         index: pageIndex,
         backgroundColor: Colors.white,
-        color: Colors.black,
+        color: Colors.green,
         items: <Widget>[
           Icon(
             Icons.person,

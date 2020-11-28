@@ -87,8 +87,6 @@ class _LogInAdminScreenState extends State<LogInAdminScreen> {
     );
   }
 
-  
-  
   Widget _loginStudentBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
@@ -107,7 +105,7 @@ class _LogInAdminScreenState extends State<LogInAdminScreen> {
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Log In",
           style: TextStyle(
@@ -153,7 +151,7 @@ class _LogInAdminScreenState extends State<LogInAdminScreen> {
                   Text(
                     'Sign In as Adminiastrator',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,
@@ -167,27 +165,10 @@ class _LogInAdminScreenState extends State<LogInAdminScreen> {
                     height: 30.0,
                   ),
                   _buildPasswordTF(),
-              
-              
                   SizedBox(
                     height: 20,
                   ),
                   _loginStudentBtn(),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    child: FlatButton(
-                      onPressed: () {},
-                      padding: EdgeInsets.only(right: 0.0),
-                      child: Text(
-                        "New User? Sign Up Here",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                          fontFamily: 'Schyler',
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

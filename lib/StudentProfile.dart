@@ -212,7 +212,7 @@ class _StudentProfileState extends State<StudentProfile> {
             fontFamily: 'Schyler',
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
       ),
       body: Stack(
         children: <Widget>[
@@ -272,7 +272,7 @@ class _StudentProfileState extends State<StudentProfile> {
           );
         },
         child: Icon(Icons.edit),
-        backgroundColor: Colors.grey[850],
+        backgroundColor: Colors.green[900],
       ),
     );
   }

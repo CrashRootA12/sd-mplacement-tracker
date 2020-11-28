@@ -55,8 +55,8 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
               shadowColor: Colors.grey,
               child: TextField(
                 onChanged: (value) => tTenth = value,
-                controller:
-                    TextEditingController(text: this.selectedCompany.tenth.toString()),
+                controller: TextEditingController(
+                    text: this.selectedCompany.tenth.toString()),
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -111,8 +111,8 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
               shadowColor: Colors.grey,
               child: TextField(
                 onChanged: (value) => tTwelfth = value,
-                controller:
-                    TextEditingController(text: this.selectedCompany.twelfth.toString()),
+                controller: TextEditingController(
+                    text: this.selectedCompany.twelfth.toString()),
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -169,8 +169,8 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
               shadowColor: Colors.grey,
               child: TextField(
                 onChanged: (value) => tBack = value,
-                controller:
-                    TextEditingController(text: this.selectedCompany.backlogs.toString()),
+                controller: TextEditingController(
+                    text: this.selectedCompany.backlogs.toString()),
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -198,8 +198,8 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
               shadowColor: Colors.grey,
               child: TextField(
                 onChanged: (value) => tCtc = value,
-                controller:
-                    TextEditingController(text: this.selectedCompany.ctc.toString()),
+                controller: TextEditingController(
+                    text: this.selectedCompany.ctc.toString()),
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -220,7 +220,7 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: RaisedButton(
-        onPressed: () async{
+        onPressed: () async {
           await DatabaseProvider().updateCompany(CompanyModel(
               name: tName,
               arrival: this.selectedCompany.arrival,
@@ -231,11 +231,11 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
               link: this.selectedCompany.link,
               tenth: tTenth,
               twelfth: tTwelfth));
-              //Update Done Here
+          //Update Done Here
         },
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.green,
         child: Text(
           "Save Changes",
           style: TextStyle(
@@ -256,7 +256,7 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
         onPressed: () => showAlertDialog(context),
         elevation: 10,
         padding: EdgeInsets.all(15),
-        color: Colors.black,
+        color: Colors.red[900],
         child: Text(
           "Delete Company",
           style: TextStyle(
@@ -293,7 +293,7 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
                   Text(
                     'Company',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 30.0,
                       fontFamily: 'Schyler',
                       fontWeight: FontWeight.bold,
@@ -352,7 +352,7 @@ class _AdminOpenCompanyState extends State<AdminOpenCompany> {
     Widget okButton = FlatButton(
       child: Text("Yes"),
       onPressed: () async {
-       await DatabaseProvider().deleteCompany(this.selectedCompany.name);
+        await DatabaseProvider().deleteCompany(this.selectedCompany.name);
       },
     );
 

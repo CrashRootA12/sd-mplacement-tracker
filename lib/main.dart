@@ -52,9 +52,9 @@ class MainScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   Text(
-                    'm̷P̷l̷a̷c̷e̷m̷e̷n̷t̷T̷r̷a̷c̷k̷e̷r̷',
+                    'mPlacementTracker',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 40.0,
                       fontFamily: 'Schyler',
                     ),
@@ -73,7 +73,7 @@ class MainScreen extends StatelessWidget {
                       },
                       elevation: 10,
                       padding: EdgeInsets.all(15),
-                      color: Colors.black,
+                      color: Colors.green,
                       child: Text(
                         "I'm a  Student",
                         style: TextStyle(
@@ -97,7 +97,7 @@ class MainScreen extends StatelessWidget {
                       },
                       elevation: 10,
                       padding: EdgeInsets.all(15),
-                      color: Colors.black,
+                      color: Colors.green,
                       child: Text(
                         "I'm an  Administrator",
                         style: TextStyle(

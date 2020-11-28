@@ -38,7 +38,7 @@ class _NavigationAdminState extends State<NavigationAdmin> {
       bottomNavigationBar: CurvedNavigationBar(
         index: pageIndex,
         backgroundColor: Colors.white,
-        color: Colors.black,
+        color: Colors.green,
         items: <Widget>[
           Icon(
             Icons.dashboard,
