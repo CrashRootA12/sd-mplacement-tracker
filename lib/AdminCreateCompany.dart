@@ -107,7 +107,7 @@ class _AdminCreateCompanyState extends State<AdminCreateCompany> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
-                onChanged: (value) => tfEntryTwelfth,
+                onChanged: (value) => tfEntryTwelfth = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -373,8 +373,7 @@ class _AdminCreateCompanyState extends State<AdminCreateCompany> {
         graduation: tfEntryGraduation,
         link: tfEntryLink,
         tenth: tfEntryTenth,
-        twelfth: tfEntryTwelfth
-        );
+        twelfth: tfEntryTwelfth);
     var dbProvider = DatabaseProvider();
     dbProvider.addCompany(companyObject);
     debugPrint("Company Added");

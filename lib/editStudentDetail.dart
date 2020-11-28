@@ -7,12 +7,10 @@ class EditDetails extends StatefulWidget {
   final StudentModel student;
   EditDetails({Key key, this.student}) : super(key: key);
   @override
-  _EditDetailsState createState() => _EditDetailsState(student: student);
+  _EditDetailsState createState() => _EditDetailsState();
 }
 
 class _EditDetailsState extends State<EditDetails> {
-  StudentModel student;
-  _EditDetailsState({this.student});
   dynamic tname, troll, tcourse, ttenth, ttwelfth, tcgpa;
   Widget _buildNameTF() {
     return Column(
@@ -25,7 +23,8 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
-                controller: TextEditingController(text: student.name),
+                controller:
+                    TextEditingController(text: widget.student.name.toString()),
                 onChanged: (value) => tname = value,
                 keyboardType: TextInputType.name,
                 style: TextStyle(color: Colors.black),
@@ -53,8 +52,8 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
-                controller:
-                    TextEditingController(text: student.rollNumber.toString()),
+                controller: TextEditingController(
+                    text: widget.student.rollNumber.toString()),
                 onChanged: (value) => troll = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
@@ -109,8 +108,8 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
-                controller:
-                    TextEditingController(text: student.tenth.toString()),
+                controller: TextEditingController(
+                    text: widget.student.tenth.toString()),
                 onChanged: (value) => ttenth = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
@@ -138,8 +137,8 @@ class _EditDetailsState extends State<EditDetails> {
               elevation: 10.0,
               shadowColor: Colors.grey,
               child: TextField(
-                controller:
-                    TextEditingController(text: student.twelfth.toString()),
+                controller: TextEditingController(
+                    text: widget.student.twelfth.toString()),
                 onChanged: (value) => ttwelfth = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
@@ -168,7 +167,7 @@ class _EditDetailsState extends State<EditDetails> {
               shadowColor: Colors.grey,
               child: TextField(
                 controller:
-                    TextEditingController(text: student.cgpa.toString()),
+                    TextEditingController(text: widget.student.cgpa.toString()),
                 onChanged: (value) => tcgpa = value,
                 keyboardType: TextInputType.number,
                 style: TextStyle(color: Colors.black),
@@ -194,9 +193,9 @@ class _EditDetailsState extends State<EditDetails> {
           await DatabaseProvider().updateStudent(StudentModel(
               cgpa: tcgpa,
               course: tcourse,
-              email: student.email,
+              email: widget.student.email,
               name: tname,
-              password: student.password,
+              password: widget.student.password,
               rollNumber: troll,
               tenth: ttenth,
               twelfth: ttwelfth));

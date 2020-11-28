@@ -265,7 +265,10 @@ class _StudentProfileState extends State<StudentProfile> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => EditDetails()),
+            MaterialPageRoute(
+                builder: (context) => EditDetails(
+                      student: widget.student,
+                    )),
           );
         },
         child: Icon(Icons.edit),
